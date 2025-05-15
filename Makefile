@@ -1,4 +1,4 @@
-.PHONY: install
+.PHONY: install uninstall
 install:
 	install -D media-automount $(DESTDIR)$(PREFIX)/bin/media-automount
 	install -D umount_dmenu $(DESTDIR)$(PREFIX)/bin/umount_dmenu
@@ -7,3 +7,9 @@ install:
 	install -d $(DESTDIR)/etc/media-automount.d
 	install -Cm644 media-automount.d/* $(DESTDIR)/etc/media-automount.d/
 
+uninstall:
+	rm -f $(DESTDIR)$(PREFIX)/bin/media-automount
+	rm -f $(DESTDIR)$(PREFIX)/bin/umount_dmenu
+	rm -f $(DESTDIR)$(PREFIX)/lib/udev/rules.d/99-media-automount.rules
+	rm -f $(DESTDIR)$(PREFIX)/lib/systemd/system/media-automount@.service
+	rm -rf $(DESTDIR)/etc/media-automount.d/
