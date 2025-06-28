@@ -38,6 +38,15 @@ sudo udevadm control --reload-rules
 sudo udevadm trigger
 ```
 
+or
+
+```
+unzip master.zip
+cd udev-media-automount-master
+chmod +x ./install.sh
+sudo ./install.sh
+```
+
 Configuration
 -------------
 
